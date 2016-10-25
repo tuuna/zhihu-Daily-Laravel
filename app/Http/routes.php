@@ -11,6 +11,9 @@
 |
 */
 
+function user_ins() {
+    return $user = new App\User;
+}
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,7 +22,14 @@ Route::any('/api',function () {
     return ['version' => 0.1];
 });
 
-Route::any('/api/user',function () {
-    $user = new App\User;
-    return $user->signup();
+Route::any('/api/signup',function () {
+    return user_ins()->signup();
+});
+
+Route::any('/api/login', function () {
+    return user_ins()->signin();
+});
+
+Route::any('/api/logout', function () {
+    return user_ins()->logout();
 });
