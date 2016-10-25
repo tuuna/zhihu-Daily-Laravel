@@ -11,8 +11,16 @@
 |
 */
 
+function rq($key = null, $default = null) {
+    if(!key) return Request::all();
+    return Request::get($key,$default);
+}
 function user_ins() {
     return $user = new App\User;
+}
+
+function question_ins() {
+    return $question = new App\Question;
 }
 Route::get('/', function () {
     return view('welcome');
@@ -33,3 +41,9 @@ Route::any('/api/login', function () {
 Route::any('/api/logout', function () {
     return user_ins()->logout();
 });
+
+Route::any('/api/question/add'  , function() {
+    return question_ins()->add();
+});
+
+Route::any('/')
