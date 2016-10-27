@@ -60,4 +60,34 @@ class Answer extends Model
 
         return ['status' => 1,'data' => $answers];
     }
+
+    public function vote() {
+        if(!user_ins()->is_logged_in())
+            return ['status' => 0,'msg' => '请先登陆'];
+
+        if(!rq('id') || !rq('vote'))
+            return ['status' => 0,'msg' => '需要传入问题id和投票状态'];
+
+        $answer = $this->find(rq('id'));
+
+        if(!$answer) return ['status' => 0,'msg' => '没有这个问题'];
+
+        $vote = $answer
+                    ->users() //返回一个关系
+                    ->newPivotStatement() //进入中间表
+                    ->where('user_id',session('user_id'))
+                    ->where('answer_id',rq('id'))
+                    ->first();
+
+        if($vote)
+            $vote->delete();
+
+        $answer->users()->attach(session('user_id'),['vote' => (int) rq('vote')]);
+
+        return ['status' => 1];
+    }
+
+    public function users() {
+        return $this->belongsToMany('App\User')->withPivot('vote')->withTimestamps();
+    }
 }

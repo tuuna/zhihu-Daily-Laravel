@@ -132,6 +132,9 @@ class User extends Model
         return session('username') ? session('user_id') : false;
     }
 
+    public function answers() {
+        return $this->belongsToMany('App\Answer')->withPivot('vote')->withTimestamps();
+    }
 
 
 }
