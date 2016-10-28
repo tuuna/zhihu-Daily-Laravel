@@ -87,7 +87,12 @@ class Answer extends Model
         return ['status' => 1];
     }
 
-    public function users() {
+    /**
+     * 表之间的关系
+     *
+     *
+    */
+     public function users() {
         return $this->belongsToMany('App\User')->withPivot('vote')->withTimestamps();
     }
 }
