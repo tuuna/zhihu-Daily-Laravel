@@ -73,8 +73,10 @@ class Question extends Model
         if(rq('id'))
             return ['status' => 1,'data' => $this->find(rq('id'))];
 
-        $limit = rq('limit') ? : 15;
-        $skip = (rq('skip') ?  rq('skip')-1 : 0 ) *$limit;
+ /*       $limit = rq('limit') ? : 15;
+        $skip = (rq('skip') ?  rq('skip')-1 : 0 ) *$limit;*/
+
+        list($limit,$skip) = paginate(rq('limit'),rq('skip'));
 
         $datas =  $this->orderBy('created_at')->skip($skip)->limit($limit)->get()->keyBy('id');
         return ['status' => 1, 'data' => $datas];

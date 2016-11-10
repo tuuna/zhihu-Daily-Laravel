@@ -132,6 +132,116 @@ class User extends Model
         return session('username') ? session('user_id') : false;
     }
 
+    /**
+     * @return array
+     * 修改密码
+     */
+    public function change_password() {
+        if(!$this->is_logged_in())
+            return ['status' => 0 , 'msg' => '请先登陆'];
+
+        if(!rq('old_password') || !rq('new_password'))
+            return ['status' => 0,'msg' => '需要输入旧密码或新密码'];
+
+        $user = $this->find(session('user_id'));
+
+        if(!Hash::check(rq('old_password'),$user->password))
+            return ['status' => 0 , 'msg' => '旧密码错误或无效'];
+
+        $user->password = bcrypt(rq('new_password'));
+        return $user->save() ?
+            ['status' => 1, 'msg' => '密码修改成功'] :
+            ['status' => 0, 'msg' => '密码修改失败'];
+    }
+
+    /**
+     * 找回(重置)密码
+     */
+
+    public function reset_password() {
+
+        if($this->is_robert())
+            return err('您的操作频率太快了');
+
+        if(!rq('phone'))
+            return err('需要先输入您正确的手机号码');
+
+        $user = $this->where('phone',rq('phone'))->first();
+
+        if(!$user)
+            return err('这个手机号不存在');
+
+        $captcha = $this->generate_captcha();
+        $this->send_msg();
+        $user->phone_captcha = $captcha;
+
+        if($user->save()) {
+            $this->send_msg();
+            session()->set('last_sms_time',time());
+            return suc();
+        }
+        return err('验证失败');
+    }
+
+    /**
+     * 短信发送api
+     */
+
+    public function send_msg() {
+        return true;
+    }
+    /**
+     * 生成验证码
+     */
+
+    public function generate_captcha() {
+        return rand(1000,9999);
+    }
+
+    /**
+     * @param int $time
+     * @return bool
+     * 检查是否暴力发送
+     */
+
+    public function is_robert($time = 10) {
+        $current_time = time();
+        $last_sms_time = session('last_sms_time');
+
+        if($current_time - $last_sms_time < $time)
+            return true;
+    }
+
+    /**
+     * 验证找回密码api
+     */
+
+    public function validate_reset_password() {
+
+        if($this->is_robert(2))
+            return err('您的操作频率太快了');
+
+        if (!rq('phone') || !rq('phone_captcha') || !rq('new_password'))
+            return err('请先输入电话号码验证码以及新的密码');
+
+        $user = $this->where([
+            'phone' => rq('phone'),
+            'phone_captcha' => rq('phone_captcha')
+        ])->first();
+
+        if(!$user)
+            return err('invalid phone or invalid phone_captcha');
+
+        $user->password = bcrypt(rq('new_password'));
+        return $user->save() ?
+            suc() :
+            err('密码更新失败');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * 关联表建立
+     */
     public function answers() {
         return $this->belongsToMany('App\Answer')->withPivot('vote')->withTimestamps();
     }

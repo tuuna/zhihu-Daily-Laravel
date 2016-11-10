@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddFieldPhoneCaptcha' => $baseDir . '/database/migrations/2016_11_10_192413_add_field_phone_captcha.php',
     'CreateTableAnswerUser' => $baseDir . '/database/migrations/2016_10_27_215416_create_table_answer_user.php',
     'CreateTableAnswers' => $baseDir . '/database/migrations/2016_10_27_183355_create_table_answers.php',
     'CreateTableComments' => $baseDir . '/database/migrations/2016_10_27_200236_create_table_comments.php',

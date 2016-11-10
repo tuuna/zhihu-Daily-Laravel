@@ -77,10 +77,8 @@ class Answer extends Model
                     ->newPivotStatement() //进入中间表
                     ->where('user_id',session('user_id'))
                     ->where('answer_id',rq('id'))
-                    ->first();
+                    ->delete();
 
-        if($vote)
-            $vote->delete();
 
         $answer->users()->attach(session('user_id'),['vote' => (int) rq('vote')]);
 
