@@ -7,6 +7,27 @@ use Illuminate\Support\Facades\Hash;
 use Request;
 class User extends Model
 {
+
+    /**
+     * 获取用户信息
+     */
+
+    public function read() {
+        if(!rq('id'))
+            return err('需要传递一个id');
+
+        $get = ['id','username','avatar_url','intro'];
+        $user = $this->find(rq('id'),$get);
+        $data = $user->toArray();
+        $answer_count = answer_ins()->where('user_id',rq('id'))->count();
+        $question_count = question_ins()->where('user_id',rq('id'))->count();
+        /*$answer_count = $user->answers()->count();
+        $question_count = $user->questions()->count();*/
+        $data['answer_count'] = $answer_count;
+        $data['question_count'] = $question_count;
+
+        return suc($data);
+    }
     /**
      * @return array
      * 注册模块
@@ -16,6 +37,7 @@ class User extends Model
         $username = Request::get('username');
         $password = Request::get('password');
         /**
+         *
          * 检查用户名密码是否为空
          */
 
@@ -240,10 +262,17 @@ class User extends Model
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     * 关联表建立
+     * 回答关联表建立
      */
     public function answers() {
         return $this->belongsToMany('App\Answer')->withPivot('vote')->withTimestamps();
+    }
+
+    /**
+     * 问题关联表建立
+     */
+    public function questions() {
+        return  $this->belongsToMany('App\Question')->withPivot('vote')->withTimestamps();
     }
 
 

@@ -6265,3 +6265,59 @@ Stack trace:
 #18 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(105): Illuminate\Foundation\Console\Kernel->bootstrap()
 #19 /home/tuuna/git/zhihu-Daily-Laravel/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #20 {main}  
+[2016-11-10 22:09:11] local.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected ')' in /home/tuuna/git/zhihu-Daily-Laravel/app/Http/routes.php:75
+Stack trace:
+#0 [internal function]: App\Providers\RouteServiceProvider->App\Providers\{closure}(Object(Illuminate\Routing\Router))
+#1 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(398): call_user_func(Object(Closure), Object(Illuminate\Routing\Router))
+#2 /home/tuuna/git/zhihu-Daily-Laravel/app/Providers/RouteServiceProvider.php(59): Illuminate\Routing\Router->group(Array, Object(Closure))
+#3 /home/tuuna/git/zhihu-Daily-Laravel/app/Providers/RouteServiceProvider.php(40): App\Providers\RouteServiceProvider->mapWebRoutes(Object(Illuminate\Routing\Router))
+#4 [internal function]: App\Providers\RouteServiceProvider->map(Object(Illuminate\Routing\Router))
+#5 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Container/Container.php(507): call_user_func_array(Array, Array)
+#6 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Support/Providers/RouteServiceProvider.php(72): Illuminate\Container\Container->call(Array)
+#7 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Support/Providers/RouteServiceProvider.php(31): Illuminate\Foundation\Support\Providers\RouteServiceProvider->loadRoutes()
+#8 /home/tuuna/git/zhihu-Daily-Laravel/app/Providers/RouteServiceProvider.php(29): Illuminate\Foundation\Support\Providers\RouteServiceProvider->boot(Object(Illuminate\Routing\Router))
+#9 [internal function]: App\Providers\RouteServiceProvider->boot(Object(Illuminate\Routing\Router))
+#10 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Container/Container.php(507): call_user_func_array(Array, Array)
+#11 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(757): Illuminate\Container\Container->call(Array)
+#12 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(740): Illuminate\Foundation\Application->bootProvider(Object(App\Providers\RouteServiceProvider))
+#13 [internal function]: Illuminate\Foundation\Application->Illuminate\Foundation\{closure}(Object(App\Providers\RouteServiceProvider), 14)
+#14 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(741): array_walk(Array, Object(Closure))
+#15 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/BootProviders.php(17): Illuminate\Foundation\Application->boot()
+#16 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\BootProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#17 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(219): Illuminate\Foundation\Application->bootstrapWith(Array)
+#18 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(105): Illuminate\Foundation\Console\Kernel->bootstrap()
+#19 /home/tuuna/git/zhihu-Daily-Laravel/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 {main}  
+[2016-11-10 22:09:32] local.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected ')' in /home/tuuna/git/zhihu-Daily-Laravel/app/Http/routes.php:75
+Stack trace:
+#0 [internal function]: App\Providers\RouteServiceProvider->App\Providers\{closure}(Object(Illuminate\Routing\Router))
+#1 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Routing/Router.php(398): call_user_func(Object(Closure), Object(Illuminate\Routing\Router))
+#2 /home/tuuna/git/zhihu-Daily-Laravel/app/Providers/RouteServiceProvider.php(59): Illuminate\Routing\Router->group(Array, Object(Closure))
+#3 /home/tuuna/git/zhihu-Daily-Laravel/app/Providers/RouteServiceProvider.php(40): App\Providers\RouteServiceProvider->mapWebRoutes(Object(Illuminate\Routing\Router))
+#4 [internal function]: App\Providers\RouteServiceProvider->map(Object(Illuminate\Routing\Router))
+#5 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Container/Container.php(507): call_user_func_array(Array, Array)
+#6 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Support/Providers/RouteServiceProvider.php(72): Illuminate\Container\Container->call(Array)
+#7 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Support/Providers/RouteServiceProvider.php(31): Illuminate\Foundation\Support\Providers\RouteServiceProvider->loadRoutes()
+#8 /home/tuuna/git/zhihu-Daily-Laravel/app/Providers/RouteServiceProvider.php(29): Illuminate\Foundation\Support\Providers\RouteServiceProvider->boot(Object(Illuminate\Routing\Router))
+#9 [internal function]: App\Providers\RouteServiceProvider->boot(Object(Illuminate\Routing\Router))
+#10 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Container/Container.php(507): call_user_func_array(Array, Array)
+#11 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(757): Illuminate\Container\Container->call(Array)
+#12 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(740): Illuminate\Foundation\Application->bootProvider(Object(App\Providers\RouteServiceProvider))
+#13 [internal function]: Illuminate\Foundation\Application->Illuminate\Foundation\{closure}(Object(App\Providers\RouteServiceProvider), 14)
+#14 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(741): array_walk(Array, Object(Closure))
+#15 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/BootProviders.php(17): Illuminate\Foundation\Application->boot()
+#16 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\BootProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#17 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(219): Illuminate\Foundation\Application->bootstrapWith(Array)
+#18 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(105): Illuminate\Foundation\Console\Kernel->bootstrap()
+#19 /home/tuuna/git/zhihu-Daily-Laravel/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 {main}  
+[2016-11-11 08:42:41] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "seve" is not defined.
+
+Did you mean this?
+    serve in /home/tuuna/git/zhihu-Daily-Laravel/vendor/symfony/console/Application.php:512
+Stack trace:
+#0 /home/tuuna/git/zhihu-Daily-Laravel/vendor/symfony/console/Application.php(183): Symfony\Component\Console\Application->find('seve')
+#1 /home/tuuna/git/zhihu-Daily-Laravel/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /home/tuuna/git/zhihu-Daily-Laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/tuuna/git/zhihu-Daily-Laravel/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  

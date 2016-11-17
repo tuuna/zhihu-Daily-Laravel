@@ -18,9 +18,4 @@
         <div ui-view></div>
     </div>
 </body>
-<script type="text/ng-template" id="home.tpl">
-<div>
-    <h1>首页</h1>
-</div>
-</script>
 </html>

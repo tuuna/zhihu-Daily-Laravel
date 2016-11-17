@@ -26,11 +26,11 @@ function err($msg = null) {
     return ['status' => 0,'msg' => $msg];
 }
 
-function suc($data_to_merge = null) {
-    $data =  ['status' => 1,'msg' => 'ok'];
+function suc($data_to_merge = []) {
+    $data =  ['status' => 1,'msg' => 'ok','data' => []];
 
     if($data_to_merge)
-        $data = array_merge($data,$data_to_merge);
+        $data['data'] = array_merge($data['data'],$data_to_merge);
     return $data;
 }
 function user_ins() {
@@ -72,7 +72,11 @@ Route::any('/api/user/reset_password', function () {
 
 Route::any('/api/user/validate_reset_password', function () {
     return user_ins()->validate_reset_password();
-)};
+});
+
+Route::any('/api/user/read', function () {
+    return user_ins()->read();
+});
 
 Route::any('/api/logout', function () {
     return user_ins()->logout();
@@ -123,5 +127,9 @@ Route::any('/api/comment/remove', function() {
 });
 
 Route::any('/api/timeline', 'CommonController@timeline');
+
+Route::get('/',function() {
+    return view('index');
+});
 
 
