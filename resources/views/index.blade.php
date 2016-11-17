@@ -13,14 +13,34 @@
     <title>Daily</title>
 </head>
 <body>
-    <span>this is the start of L&A</span>
-    <div>
-        <div ui-view></div>
+<div class="navbar clearfix">
+    {{--<a href="" ui-sref="home">首页</a> <!-- 这里应该使用state的名称-->--}}
+    <div class="container">
+        <div class="fl">
+            <div class="navbar-item brand">知乎</div>
+            <div class="navbar-item">
+                <input type="text">
+            </div>
+        </div>
+        <div class="fr">
+            <div ui-sref="home" class="navbar-item">首页</div>
+            <div ui-sref="login" class="navbar-item">登录</div>
+            <div ui-sref="register" class="navbar-item">注册</div>
+        </div>
     </div>
+</div>
+<div class="page">
+    <div ui-view></div>
+</div>
 </body>
 <script type="text/ng-template" id="home.tpl">
-<div>
-    <h1>首页</h1>
-</div>
+    <div class="home container">
+        fjsldkjflkdsjlfj
+    </div>
+</script>
+
+<script type="text/ng-template" id="login.tpl">
+    <span>这是登录页面</span>
+
 </script>
 </html>
