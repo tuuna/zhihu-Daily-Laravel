@@ -142,7 +142,7 @@ class User extends Model
      */
 
     public function logout() {
-        session()-> flash(); //销毁所有的session,这是最偷懒的做法，但是很多时候还是需要记录用户的一些信息，则可以用forget来指定值来删除session
+        session()-> flush(); //销毁所有的session,这是最偷懒的做法，但是很多时候还是需要记录用户的一些信息，则可以用forget来指定值来删除session
         return redirect('/');
 //        session()-> forget('username');
 //        $username = session()-> pull('username');
@@ -154,7 +154,7 @@ class User extends Model
      * 检测用户是否登陆
      */
     public function is_logged_in() {
-        return session('username') ? session('user_id') : false;
+        return is_logged_in();
     }
 
     /**

@@ -68,7 +68,7 @@ class Question extends Model
      * 查看问题模块
      */
 
-    public function observe() {
+    public function read() {
 
         if(rq('id'))
             return ['status' => 1,'data' => $this->find(rq('id'))];

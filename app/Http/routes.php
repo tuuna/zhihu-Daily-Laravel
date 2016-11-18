@@ -33,6 +33,11 @@ function suc($data_to_merge = []) {
         $data['data'] = array_merge($data['data'],$data_to_merge);
     return $data;
 }
+
+function is_logged_in() {
+    return session('user_id') ? : false;
+}
+
 function user_ins() {
     return $user = new App\User;
 }
@@ -94,8 +99,8 @@ Route::any('/api/question/change' , function() {
     return question_ins()->change();
 });
 
-Route::any('/api/question/observe', function() {
-    return question_ins()->observe();
+Route::any('/api/question/read', function() {
+    return question_ins()->read();
 });
 
 Route::any('/api/question/remove', function () {

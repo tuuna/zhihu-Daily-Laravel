@@ -18,14 +18,24 @@
     <div class="container">
         <div class="fl">
             <div class="navbar-item brand">知乎</div>
-            <div class="navbar-item">
-                <input type="text">
-            </div>
+            <form id="quick ask" ng-controller="QuestionAddController" ng-submit="Question.go_add_question()">
+                <div class="navbar-item" >
+                <input type="text" ng-model="Question.new_question.title">
+                </div>
+                <div class="navbar-item">
+                <button>提问</button>
+                </div>
+            </form>
         </div>
         <div class="fr">
             <div ui-sref="home" class="navbar-item">首页</div>
-            <div ui-sref="login" class="navbar-item">登录</div>
-            <div ui-sref="signup" class="navbar-item">注册</div>
+            @if (is_logged_in())
+                <div ui-sref="login" class="navbar-item">{{ session('username') }}</div>
+                <a href="{{url('/api/user/logout')}}" class="navbar-item">退出</a>
+            @else
+                <div ui-sref="login" class="navbar-item">登录</div>
+                <div ui-sref="signup" class="navbar-item">注册</div>
+            @endif
         </div>
     </div>
 </div>
@@ -94,6 +104,25 @@
                     </div>
                 </div>
                 <button type="submit" ng-disabled="signup_form.$invalid">注册</button>
+            </form>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="question.add.tpl">
+    <div ng-controller="QuestionAddController" class="question_add container">
+        <div class="card">
+            <form ng-submit="Question.add()" name="question_add_form">
+                <div class="input-group">
+                    <label>问题标题</label>
+                    <input type="text" ng-model="Question.new_question.title" name="title">
+                </div>
+                <div class="input-group">
+                    <label>问题描述</label>
+                    <textarea  ng-model="Question.new_question.desc" name="desc"></textarea>
+                </div>
+                <div class="input-group">
+                    <button type="submit" class="primary">提交</button>
+                </div>
             </form>
         </div>
     </div>

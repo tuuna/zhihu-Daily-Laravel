@@ -28,6 +28,9 @@ h1 {
     color: white;
 }
 
+.navbar form {
+    display: inline-block;
+}
 .navbar-item {
     display: inline-block;
     line-height: 2;
@@ -56,6 +59,7 @@ h1 {
 }
 
 .container.signup,
+.container.question_add,
 .container.login,
 .container.reset-password {
     width: 400px;
@@ -75,6 +79,10 @@ label {
     margin:4px 0;
 }
 
+a {
+    text-decoration: none;
+}
+textarea,
 input {
     display: block;
     width:100%;
@@ -113,4 +121,11 @@ input,button {
 button.primary {
     background:#000;
     color: #fff;
+}
+
+#quick ask button {
+    background: #000;
+    color: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    border:1px solid rgba(0,0,0,.2);
 }
