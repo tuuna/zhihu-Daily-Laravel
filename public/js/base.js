@@ -2,7 +2,11 @@
     'use strict';
 
     angular.module('zhihu',['ui.router'])
-        .config(function ($interpolateProvider,$stateProvider,$urlRouterProvider) {
+        .config([
+            '$interpolateProvider',
+            '$stateProvider',
+            '$urlRouterProvider'
+        ],function ($interpolateProvider,$stateProvider,$urlRouterProvider) {
             $interpolateProvider.startSymbol('[:');
             $interpolateProvider.endSymbol(':]');
 
@@ -19,5 +23,13 @@
                     // template : '登录页面'
                     templateUrl : 'login.tpl'
                 })
+
+                .service('UserService', [
+                    function(){
+                       var me = this;
+                        me.signup = function() {
+                            console.log('signup');
+                        }
+                }])
     })
 })();

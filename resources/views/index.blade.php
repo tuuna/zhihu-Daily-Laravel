@@ -35,12 +35,26 @@
 </body>
 <script type="text/ng-template" id="home.tpl">
     <div class="home container">
-        fjsldkjflkdsjlfj
+        这里是主页面
     </div>
 </script>
 
 <script type="text/ng-template" id="login.tpl">
-    <span>这是登录页面</span>
+    <div class="home container">
+        这里是登录页面
+    </div>
 
+</script>
+
+<script type="text/ng-template" id="reg.tpl">
+
+    <div class="home container">
+        <div class="card">
+            <h1>注册</h1>
+            <form ng-submit="UserService.signup()">
+                <button type="submit">注册</button>
+            </form>
+        </div>
+    </div>
 </script>
 </html>
