@@ -12,7 +12,7 @@
 */
 
 function rq($key = null, $default = null) {
-    if(!key) return Request::all();
+    if(!$key) return Request::all();
     return Request::get($key,$default);
 }
 
@@ -54,11 +54,11 @@ Route::any('/api',function () {
     return ['version' => 0.1];
 });
 
-Route::any('/api/signup',function () {
+Route::any('/api/user/signup',function () {
     return user_ins()->signup();
 });
 
-Route::any('/api/login', function () {
+Route::any('/api/user/login', function () {
     return user_ins()->signin();
 });
 
@@ -78,8 +78,12 @@ Route::any('/api/user/read', function () {
     return user_ins()->read();
 });
 
-Route::any('/api/logout', function () {
+Route::any('/api/user/logout', function () {
     return user_ins()->logout();
+});
+
+Route::any('/api/user/exist', function () {
+    return user_ins()->is_exists();
 });
 
 Route::any('/api/question/add'  , function() {

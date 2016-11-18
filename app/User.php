@@ -275,5 +275,12 @@ class User extends Model
         return  $this->belongsToMany('App\Question')->withPivot('vote')->withTimestamps();
     }
 
+    /**
+     * 检查用户名是否存在
+     *
+     */
 
+    public function is_exists() {
+        return suc(['count' => $this->where(rq())->count()]);
+    }
 }
