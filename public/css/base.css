@@ -109,3 +109,8 @@ button {
 input,button {
     padding:5px;
 }
+
+button.primary {
+    background:#000;
+    color: #fff;
+}

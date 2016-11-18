@@ -59,7 +59,7 @@ Route::any('/api/user/signup',function () {
 });
 
 Route::any('/api/user/login', function () {
-    return user_ins()->signin();
+    return user_ins()->login();
 });
 
 Route::any('/api/user/change_password' , function () {

@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Request;
+//use Hash;
+//use Hash;
 class User extends Model
 {
 
@@ -88,8 +90,8 @@ class User extends Model
             return ['status' => 0,'msg' => '用户名或密码不能为空'];
         }
 
-        $username = $has_username_and_password[0];
-        $password = $has_username_and_password[1];
+        $username = $has_username_and_password['username'];
+        $password = $has_username_and_password['password'];
 
         /**
          * 检查用户名是否存在
@@ -103,9 +105,10 @@ class User extends Model
         /**
          * 检查用户密码是否正确
          */
-        $hashed_password = $user->password;
+//        $hashed_password = $user->password;
 
-        if(!Hash::check($password,$hashed_password)) {
+
+       if(! Hash::check($password,$user->password)) {
             return ['status' => 0, 'msg' => '用户密码错误'];
         }
 
@@ -128,7 +131,7 @@ class User extends Model
 
 
         if( $username && $password) {
-            return [$username,$password];
+            return ['username' => $username,'password' => $password];
         } else {
             return false;
         }

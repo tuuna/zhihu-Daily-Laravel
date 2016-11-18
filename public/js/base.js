@@ -37,6 +37,7 @@
                 function($state,$http){
                     var me = this;
                     me.signup_data = {};
+                    me.login_data = {};
                     me.signup = function() {
                         $http.post('/api/user/signup',me.signup_data)
                             .then(function (r) {
@@ -47,7 +48,7 @@
                             },function(e) {
                                 console.log('e',e);
                             })
-                    }
+                    };
                     me.username_exists = function () {
                         $http.post('/api/user/exist',{
                             'username' : me.signup_data.username
@@ -61,7 +62,23 @@
                             }, function(e) {
                                 console.log('e',e);
                             })
-                    }
+                    };
+                    me.login = function() {
+                        $http.post('/api/user/login',me.login_data)
+                            .then(function (r) {
+                                // console.log('r',r);
+                                if(r.data.status) {
+                                    me.login_data = {};
+                                    $state.go('home');
+                                    //location.href = '/';
+                                } else {
+                                    me.login_failed = true;
+                                }
+                            },function(e) {
+                                console.log('e',e);
+                            })
+                    };
+
             }])
 
             .controller('RegController',[ '$scope','UserService',
@@ -78,4 +95,9 @@
                             UserService.username_exists();
                     },true)
             }])
+
+        .controller('LoginController',['$scope','UserService',
+            function ($scope,UserService) {
+                $scope.User = UserService;
+        }])
 })();
