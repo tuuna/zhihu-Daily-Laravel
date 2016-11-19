@@ -44,8 +44,35 @@
 </div>
 </body>
 <script type="text/ng-template" id="home.tpl">
-    <div class="home container">
-        这里是主页面
+    <div class="home card container">
+        <h1>最近动态</h1>
+        <div class="hr"></div>
+        <div class="item-set">
+            <div class="item">
+                <div class="vote"></div>
+                <div class="feed-item-content">
+                    <div class="content-act">xx赞同了这个回答</div>
+                    <div class="title">狗蛋子的起名来源</div>
+                    <div class="content-owner">李小花
+                        <span class="desc">this is a great author</span>
+                    </div>
+                    <div class="content-main">这里是首页内容</div>
+                    <div class="action-set">
+                        <div class="comment">评论</div>
+                    </div>
+                    <div class="comment-block">
+                        <div class="comment-item-set clearfix">
+                            <div class="rect"></div>
+                            <div class="comment-item">
+                                <div class="user">狗蛋</div>
+                                <div class="comment-content">哈哈哈哈</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hr"></div>
     </div>
 </script>
 
