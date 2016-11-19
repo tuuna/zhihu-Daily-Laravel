@@ -2,8 +2,11 @@
         <h1>最近动态</h1>
         <div class="hr"></div>
         <div class="item-set">
-            <div ng-repeat="item in Timeline.data" class="item">
-                <div class="vote"></div>
+            <div ng-repeat="item in Timeline.data" class="feed item clearfix">
+                <div class="vote">
+                    <div class="up">123</div>
+                    <div class="down">踩</div>
+                </div>
                 <div class="feed-item-content">
                     <div ng-if="item.question_id" class="content-act">[: item.user.username :]添加了回答</div>
                     <div ng-if="!item.question_id" class="content-act">[: item.user.username :]回答了问题</div>

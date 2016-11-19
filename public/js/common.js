@@ -1,10 +1,17 @@
 ;(function() {
     'use strict';
     angular.module('common', [])
-        .service('TimelineService' ,['$http' , function($http) {
+        .service('TimelineService' ,['$http' , 'AnswerService',function($http,AnswerService) {
             var me = this;
             me.data = [];
             me.current_page = 1;
+            me.vote = function(conf) {
+                AnswerService.vote(conf)
+                    .then(function(r) {
+                        if(r)
+                            AnswerService.update_data(conf.id);
+                    })
+            }
             me.get = function(conf) {
                 if (me.pending) return;
                 me.pending = true;
@@ -16,6 +23,7 @@
                             if (r.data.data.length) {
                                 // me.data = r.data.data;
                                 me.data = me.data.concat(r.data.data);
+                                me.data = AnswerService.count_vote(me.data);
                                 me.current_page++;
                             } else {
                                 me.no_more_data = true;

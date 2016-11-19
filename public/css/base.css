@@ -35,7 +35,7 @@ h1 {
     max-width:96%;
     height:1px;
     background: #eee;
-    margin:10px auto;
+    margin:10px 1%;
 }
 
 .feed-item-content .title {
@@ -123,6 +123,56 @@ h1 {
     padding-top: 0;
     line-height: 1;
     font-weight: 600;
+}
+
+.feed.item .vote {
+    float: left;
+    width:10%;
+}
+
+.feed.item .feed-item-content {
+    width:90%;
+    float: left;
+}
+
+.feed.item .hr{
+    float: left;
+}
+
+.feed.item .vote {
+    padding-right:5px;
+}
+
+.feed.item .vote > * {
+    background: rgba(200,0,0,.1);
+    text-align: center;
+    vertical-align: middle;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+    margin-bottom:2px;
+    /*padding:2px;*/
+    cursor: pointer;
+}
+
+.feed.item .vote .up:hover {
+    background: #a10;
+    color: #fff;
+}
+
+.feed.item .vote .down:hover {
+    background: cornflowerblue;
+    color: #fff;
+}
+
+.feed.item .vote .up {
+    color: #6f0b00;
+    padding:4px;
+}
+
+.feed.item .vote .down {
+    background: rgba(0,0,0,.1);
+    color: #555;
 }
 
 .container {

@@ -1,6 +1,6 @@
 ;(function() {
     'use strict';
-    angular.module('zhihu',['ui.router','common','user','question'])
+    angular.module('zhihu',['ui.router','common','user','question','answer'])
         .config([
             '$interpolateProvider',
             '$stateProvider',
