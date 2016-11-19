@@ -311,7 +311,7 @@ class BinaryFileResponseTest extends ResponseTestCase
     {
         return array(
             array('/var/www/var/www/files/foo.txt', '/var/www/=/files/', '/files/var/www/files/foo.txt'),
-            array('/home/foo/bar.txt', '/var/www/=/files/,/home/foo/=/baz/', '/baz/bar.txt'),
+            array('/page/foo/bar.txt', '/var/www/=/files/,/page/foo/=/baz/', '/baz/bar.txt'),
         );
     }
 

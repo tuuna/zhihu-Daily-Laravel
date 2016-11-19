@@ -84,7 +84,7 @@ she fell past it.
 
 'Well!' thought Alice to herself, 'after such a fall as this, I shall
 think nothing of tumbling down stairs! How brave they'll all think me at
-home! Why, I wouldn't say anything about it, even if I fell off the top
+page! Why, I wouldn't say anything about it, even if I fell off the top
 of the house!' (Which was very likely true.)
 
 Down, down, down. Would the fall NEVER come to an end! 'I wonder how
@@ -673,7 +673,7 @@ she'll eat a little bird as soon as look at it!'
 
 This speech caused a remarkable sensation among the party. Some of the
 birds hurried off at once: one old Magpie began wrapping itself up very
-carefully, remarking, 'I really must be getting home; the night-air
+carefully, remarking, 'I really must be getting page; the night-air
 doesn't suit my throat!' and a Canary called out in a trembling voice to
 its children, 'Come away, my dears! It's high time you were all in bed!'
 On various pretexts they all moved off, and Alice was soon left alone.
@@ -705,7 +705,7 @@ had vanished completely.
 
 Very soon the Rabbit noticed Alice, as she went hunting about, and
 called out to her in an angry tone, 'Why, Mary Ann, what ARE you doing
-out here? Run home this moment, and fetch me a pair of gloves and a fan!
+out here? Run page this moment, and fetch me a pair of gloves and a fan!
 Quick, now!' And Alice was so much frightened that she ran off at once
 in the direction it pointed to, without trying to explain the mistake it
 had made.
@@ -758,7 +758,7 @@ and she grew no larger: still it was very uncomfortable, and, as there
 seemed to be no sort of chance of her ever getting out of the room
 again, no wonder she felt unhappy.
 
-'It was much pleasanter at home,' thought poor Alice, 'when one wasn't
+'It was much pleasanter at page,' thought poor Alice, 'when one wasn't
 always growing larger and smaller, and being ordered about by mice and
 rabbits. I almost wish I hadn't gone down that rabbit-hole--and yet--and
 yet--it's rather curious, you know, this sort of life! I do wonder what
@@ -1449,7 +1449,7 @@ now!' The poor little thing sobbed again (or grunted, it was impossible
 to say which), and they went on for some while in silence.
 
 Alice was just beginning to think to herself, 'Now, what am I to do with
-this creature when I get it home?' when it grunted again, so violently,
+this creature when I get it page?' when it grunted again, so violently,
 that she looked down into its face in some alarm. This time there could
 be NO mistake about it: it was neither more nor less than a pig, and she
 felt that it would be quite absurd for her to carry it further.

@@ -10,14 +10,17 @@
     <script src="/node_modules/angular/angular.js"></script>
     <script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/js/base.js"></script>
+    <script src="/js/user.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/question.js"></script>
     <title>Daily</title>
 </head>
 <body>
 <div class="navbar clearfix">
-    <?php /*<a href="" ui-sref="home">首页</a> <!-- 这里应该使用state的名称-->*/ ?>
+    <?php /*<a href="" ui-sref="page">首页</a> <!-- 这里应该使用state的名称-->*/ ?>
     <div class="container">
         <div class="fl">
-            <div class="navbar-item brand">知乎</div>
+            <div class="navbar-item brand" ui-sref="home">知乎</div>
             <form id="quick ask" ng-controller="QuestionAddController" ng-submit="Question.go_add_question()">
                 <div class="navbar-item" >
                 <input type="text" ng-model="Question.new_question.title">
@@ -43,167 +46,4 @@
     <div ui-view></div>
 </div>
 </body>
-<script type="text/ng-template" id="home.tpl">
-    <div class="home card container">
-        <h1>最近动态</h1>
-        <div class="hr"></div>
-        <div class="item-set">
-            <div class="item">
-                <div class="vote"></div>
-                <div class="feed-item-content">
-                    <div class="content-act">xx赞同了这个回答</div>
-                    <div class="title">狗蛋子的起名来源</div>
-                    <div class="content-owner">李小花
-                        <span class="desc">this is a great author</span>
-                    </div>
-                    <div class="content-main">这里是首页内容</div>
-                    <div class="action-set">
-                        <div class="comment">评论</div>
-                    </div>
-                    <div class="comment-block">
-                        <div class="comment-item-set clearfix">
-                            <div class="rect"></div>
-                            <div class="comment-item">
-                                <div class="user">狗蛋</div>
-                                <div class="comment-content">哈哈哈哈</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="hr"></div>
-        <div class="item-set">
-            <div class="item">
-                <div class="vote"></div>
-                <div class="feed-item-content">
-                    <div class="content-act">xx赞同了这个回答</div>
-                    <div class="title">狗蛋子的起名来源</div>
-                    <div class="content-owner">李小花
-                        <span class="desc">this is a great author</span>
-                    </div>
-                    <div class="content-main">这里是首页内容</div>
-                    <div class="action-set">
-                        <div class="comment">评论</div>
-                    </div>
-                    <div class="comment-block">
-                        <div class="comment-item-set clearfix">
-                            <div class="rect"></div>
-                            <div class="comment-item">
-                                <div class="user">狗蛋</div>
-                                <div class="comment-content">哈哈哈哈</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="hr"></div>
-        <div class="item-set">
-            <div class="item">
-                <div class="vote"></div>
-                <div class="feed-item-content">
-                    <div class="content-act">xx赞同了这个回答</div>
-                    <div class="title">狗蛋子的起名来源</div>
-                    <div class="content-owner">李小花
-                        <span class="desc">this is a great author</span>
-                    </div>
-                    <div class="content-main">这里是首页内容</div>
-                    <div class="action-set">
-                        <div class="comment">评论</div>
-                    </div>
-                    <div class="comment-block">
-                        <div class="comment-item-set clearfix">
-                            <div class="rect"></div>
-                            <div class="comment-item">
-                                <div class="user">狗蛋</div>
-                                <div class="comment-content">哈哈哈哈</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="hr"></div>
-    </div>
-</script>
-
-<script type="text/ng-template" id="login.tpl">
-    <div ng-controller="LoginController" class="login container">
-        <div class="card" >
-            <h1>登录</h1>
-            <form name="login_form" ng-submit="User.login()">
-                <div class="input-group">
-                    <label>用户名</label>
-                    <input type="text" ng-model="User.login_data.username" name="username" ng-minlength="4" ng-maxlength="16" ng-model-options="{debounce: 500}" required>
-                    <div class="input-error-set" ng-if="login_form.username.$touched">
-                        <div ng-if="login_form.username.$error.required">用户名不能为空</div>
-                        <div ng-if="login_form.username.$error.maxlength>16 || login_form.username.$error.minlength < 4" >用户名长度应该为4-16</div>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label>密码</label>
-                    <input type="password" ng-model="User.login_data.password" ng-minlength="6" ng-maxlength="255"  required>
-                    <div class="input-error-set" ng-if="login_form.password.$touched">
-                        <div ng-if="login_form.password.$error.required ">密码不能为空</div>
-                        <div ng-if="login_form.password.$error.maxlength > 255 || login_form.password.$error.minlength < 6">密码长度为6-255</div>
-                        <div ng-if = "User.login_failed">用户名或密码不正确</div>
-                    </div>
-                </div>
-
-                <button type="submit" class="primary" ng-disabled="login_form.$invalid">登录</button>
-            </form>
-        </div>
-    </div>
-
-</script>
-
-<script type="text/ng-template" id="signup.tpl">
-
-    <div class="signup container" ng-controller="RegController">
-        <div class="card">
-            <h1>注册</h1>
-            [: User.signup_data :]
-            <form ng-submit="User.signup()" name="signup_form">
-                <div class="input-group">
-                    <label>用户名</label>
-                    <input type="text" ng-model="User.signup_data.username" name="username" ng-minlength="4" ng-maxlength="16" ng-model-options="{debounce: 500}" required>
-                    <div class="input-error-set" ng-if="signup_form.username.$touched">
-                        <div ng-if="signup_form.username.$error.required">用户名不能为空</div>
-                        <div ng-if="signup_form.username.$error.maxlength>16 || signup_form.username.$error.minlength < 4" >用户名长度应该为4-16</div>
-                        <div ng-if="User.signup_username_exists">用户名已存在</div>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label>密码</label>
-                    <input type="password" ng-model="User.signup_data.password" ng-minlength="6" ng-maxlength="255"  required>
-                    <div class="input-error-set" ng-if="signup_form.password.$touched">
-                        <div ng-if="signup_form.password.$error.required ">密码不能为空</div>
-                        <div ng-if="signup_form.password.$error.maxlength > 255 || signup_form.password.$error.minlength < 6">密码长度为6-255</div>
-                    </div>
-                </div>
-                <button type="submit" ng-disabled="signup_form.$invalid">注册</button>
-            </form>
-        </div>
-    </div>
-</script>
-<script type="text/ng-template" id="question.add.tpl">
-    <div ng-controller="QuestionAddController" class="question_add container">
-        <div class="card">
-            <form ng-submit="Question.add()" name="question_add_form">
-                <div class="input-group">
-                    <label>问题标题</label>
-                    <input type="text" ng-model="Question.new_question.title" name="title">
-                </div>
-                <div class="input-group">
-                    <label>问题描述</label>
-                    <textarea  ng-model="Question.new_question.desc" name="desc"></textarea>
-                </div>
-                <div class="input-group">
-                    <button type="submit" class="primary">提交</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</script>
 </html>

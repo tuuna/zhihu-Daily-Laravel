@@ -136,12 +136,12 @@ class PHP_CodeCoverage_Report_Factory
      * <code>
      * Array
      * (
-     *     [/home/sb/Money/Money.php] => Array
+     *     [/page/sb/Money/Money.php] => Array
      *         (
      *             ...
      *         )
      *
-     *     [/home/sb/Money/MoneyBag.php] => Array
+     *     [/page/sb/Money/MoneyBag.php] => Array
      *         (
      *             ...
      *         )

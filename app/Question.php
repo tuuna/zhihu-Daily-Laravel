@@ -105,4 +105,8 @@ class Question extends Model
             ['status' => 0,'msg' => '删除失败'];
 
     }
+
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
 }

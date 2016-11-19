@@ -12,12 +12,15 @@ class CommonController extends Controller
         list($limit,$skip) = paginate(rq('limit'),rq('skip'));
 
         $questions = question_ins()
+                        ->with('user')
                         ->limit($limit)
                         ->skip($skip)
                         ->orderBy('created_at','desc')
                         ->get();
 
-        $answers = question_ins()
+        $answers = answer_ins()
+                        ->with('user')
+                        ->with('users')
                         ->limit($limit)
                         ->skip($skip)
                         ->orderBy('created_at','desc')

@@ -184,19 +184,19 @@ class PHP_CodeCoverage_Report_FactoryTest extends PHP_CodeCoverage_TestCase
                     'Money.php'    => array(),
                     'MoneyBag.php' => array()
                 ),
-                '/home/sb/Money',
+                '/page/sb/Money',
                 array(
-                    '/home/sb/Money/Money.php'    => array(),
-                    '/home/sb/Money/MoneyBag.php' => array()
+                    '/page/sb/Money/Money.php'    => array(),
+                    '/page/sb/Money/MoneyBag.php' => array()
                 )
             ),
             array(
                 array(
                     'Money.php' => array()
                 ),
-                '/home/sb/Money/',
+                '/page/sb/Money/',
                 array(
-                    '/home/sb/Money/Money.php' => array()
+                    '/page/sb/Money/Money.php' => array()
                 )
             ),
             array(
@@ -210,11 +210,11 @@ class PHP_CodeCoverage_Report_FactoryTest extends PHP_CodeCoverage_TestCase
                     'MoneyBag.php'       => array(),
                     'Cash.phar/Cash.php' => array(),
                 ),
-                '/home/sb/Money',
+                '/page/sb/Money',
                 array(
-                    '/home/sb/Money/Money.php'                 => array(),
-                    '/home/sb/Money/MoneyBag.php'              => array(),
-                    'phar:///home/sb/Money/Cash.phar/Cash.php' => array(),
+                    '/page/sb/Money/Money.php'                 => array(),
+                    '/page/sb/Money/MoneyBag.php'              => array(),
+                    'phar:///page/sb/Money/Cash.phar/Cash.php' => array(),
                 ),
             ),
         );

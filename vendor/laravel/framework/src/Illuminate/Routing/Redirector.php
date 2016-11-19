@@ -33,14 +33,14 @@ class Redirector
     }
 
     /**
-     * Create a new redirect response to the "home" route.
+     * Create a new redirect response to the "page" route.
      *
      * @param  int  $status
      * @return \Illuminate\Http\RedirectResponse
      */
     public function home($status = 302)
     {
-        return $this->to($this->generator->route('home'), $status);
+        return $this->to($this->generator->route('page'), $status);
     }
 
     /**

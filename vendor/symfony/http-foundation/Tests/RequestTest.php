@@ -1448,7 +1448,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
             array(
                 '/foo%20bar/',
                 array(
-                    'SCRIPT_FILENAME' => '/home/John Doe/public_html/foo bar/app.php',
+                    'SCRIPT_FILENAME' => '/page/John Doe/public_html/foo bar/app.php',
                     'SCRIPT_NAME' => '/foo bar/app.php',
                     'PHP_SELF' => '/foo bar/app.php',
                 ),
@@ -1456,39 +1456,39 @@ class RequestTest extends \PHPUnit_Framework_TestCase
                 '/',
             ),
             array(
-                '/foo%20bar/home',
+                '/foo%20bar/page',
                 array(
-                    'SCRIPT_FILENAME' => '/home/John Doe/public_html/foo bar/app.php',
+                    'SCRIPT_FILENAME' => '/page/John Doe/public_html/foo bar/app.php',
                     'SCRIPT_NAME' => '/foo bar/app.php',
                     'PHP_SELF' => '/foo bar/app.php',
                 ),
                 '/foo%20bar',
-                '/home',
+                '/page',
             ),
             array(
-                '/foo%20bar/app.php/home',
+                '/foo%20bar/app.php/page',
                 array(
-                    'SCRIPT_FILENAME' => '/home/John Doe/public_html/foo bar/app.php',
+                    'SCRIPT_FILENAME' => '/page/John Doe/public_html/foo bar/app.php',
                     'SCRIPT_NAME' => '/foo bar/app.php',
                     'PHP_SELF' => '/foo bar/app.php',
                 ),
                 '/foo%20bar/app.php',
-                '/home',
+                '/page',
             ),
             array(
-                '/foo%20bar/app.php/home%3Dbaz',
+                '/foo%20bar/app.php/page%3Dbaz',
                 array(
-                    'SCRIPT_FILENAME' => '/home/John Doe/public_html/foo bar/app.php',
+                    'SCRIPT_FILENAME' => '/page/John Doe/public_html/foo bar/app.php',
                     'SCRIPT_NAME' => '/foo bar/app.php',
                     'PHP_SELF' => '/foo bar/app.php',
                 ),
                 '/foo%20bar/app.php',
-                '/home%3Dbaz',
+                '/page%3Dbaz',
             ),
             array(
                 '/foo/bar+baz',
                 array(
-                    'SCRIPT_FILENAME' => '/home/John Doe/public_html/foo/app.php',
+                    'SCRIPT_FILENAME' => '/page/John Doe/public_html/foo/app.php',
                     'SCRIPT_NAME' => '/foo/app.php',
                     'PHP_SELF' => '/foo/app.php',
                 ),

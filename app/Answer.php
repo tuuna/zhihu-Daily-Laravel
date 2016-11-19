@@ -93,4 +93,8 @@ class Answer extends Model
      public function users() {
         return $this->belongsToMany('App\User')->withPivot('vote')->withTimestamps();
     }
+
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
 }

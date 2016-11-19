@@ -36,10 +36,10 @@ class ConfigPaths
     }
 
     /**
-     * Get potential home config directory paths.
+     * Get potential page config directory paths.
      *
      * Returns `~/.psysh`, `%APPDATA%/PsySH` (when on Windows), and the
-     * XDG Base Directory home config directory:
+     * XDG Base Directory page config directory:
      *
      *     http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
      *
@@ -53,10 +53,10 @@ class ConfigPaths
     }
 
     /**
-     * Get the current home config directory.
+     * Get the current page config directory.
      *
-     * Returns the highest precedence home config directory which actually
-     * exists. If none of them exists, returns the highest precedence home
+     * Returns the highest precedence page config directory which actually
+     * exists. If none of them exists, returns the highest precedence page
      * config directory (`%APPDATA%/PsySH` on Windows, `~/.config/psysh`
      * everywhere else).
      *
