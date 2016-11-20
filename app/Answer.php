@@ -44,7 +44,77 @@ class Answer extends Model
             ['status' => 0,'msg' => '修改失败'];
     }
 
-    public function read() {
+    public function read_by_user_id($user_id)
+    {
+        $user = user_ins()->find($user_id);
+        if (!$user)
+            return err('user not exists');
+
+        $r = $this
+            ->with('question')
+            ->where('user_id', $user_id)
+            ->get()
+            ->keyBy('id');
+
+        return suc($r->toArray());
+    }
+
+    /*查看回答api*/
+    public function read()
+    {
+        if (!rq('id') && !rq('question_id') && !rq('user_id'))
+            return ['status' => 0, 'msg' => 'id or question_id is required'];
+
+        if (rq('user_id')) {
+            $user_id = rq('user_id') === 'self' ?
+                session('user_id') :
+                rq('user_id');
+            return $this->read_by_user_id($user_id);
+        }
+
+        if (rq('id')) {
+            /*查看单个回答*/
+            $answer = $this
+                ->with('user')
+                ->with('users')
+                ->find(rq('id'));
+            //dd($answer->toArray());
+            if (!$answer)
+                return ['status' => 0, 'msg' => 'answer not exists'];
+            $answer = $this->count_vote($answer);
+            return ['status' => 1, 'data' => $answer];
+        }
+
+        /*在查看回答前, 检查问题是否存在*/
+        if (!question_ins()->find(rq('question_id')))
+            return ['status' => 0, 'msg' => 'question not exists'];
+
+        /*查看同一问题下的所有回答*/
+        $answers = $this
+            ->where('question_id', rq('question_id'))
+            ->get()
+            ->keyBy('id');
+
+        return ['status' => 1, 'data' => $answers];
+    }
+
+
+    public function count_vote($answer)
+    {
+        $upvote_count = 0;
+        $downvote_count = 0;
+        foreach ($answer->users as $user) {
+            if ($user->pivot->vote == 1)
+                $upvote_count++;
+            else
+                $downvote_count++;
+        }
+        $answer->upvote_count = $upvote_count;
+        $answer->downvote_count = $downvote_count;
+        return $answer;
+    }
+
+    /*public function read() {
         if(!rq('id') || !rq('question_id')) return ['status' => 0,'msg' =>'未接收对应的问题号和回答号'];
 
         if(rq('id')) {
@@ -59,7 +129,7 @@ class Answer extends Model
         $answers = $this->where('question_id',rq('question_id'))->get()->keyBy('id');
 
         return ['status' => 1,'data' => $answers];
-    }
+    }*/
 
     public function vote() {
         if(!user_ins()->is_logged_in())

@@ -11,7 +11,7 @@
                         if(r)
                             AnswerService.update_data(conf.id);
                     })
-            }
+            };
             me.get = function(conf) {
                 if (me.pending) return;
                 me.pending = true;
@@ -42,8 +42,8 @@
             }
         }])
 
-            .controller('HomeController',['$scope','TimelineService',
-                function($scope,TimelineService) {
+            .controller('HomeController',['$scope','TimelineService','AnswerService',
+                function($scope,TimelineService,AnswerService) {
                     var $window;
                     $scope.Timeline = TimelineService;
                     TimelineService.get();
@@ -55,5 +55,20 @@
                             TimelineService.get();
                         }
                     })
+
+                    $scope.$watch(function() {
+                        return AnswerService.data;
+                    },function(new_data,old_data) {
+                        var timeline_data = TimelineService.data;
+                        for(var k in new_data){
+                            for(var i = 0; i < timeline_data.length;i++ ){
+                                if( k == timeline_data[i].id) {
+                                    timeline_data[i] = new_data[k];
+                                }
+                            }
+                        }
+
+                        TimelineService.data = AnswerService.count_vote(TimelineService.data);
+                    },true)
                 }])
 })();

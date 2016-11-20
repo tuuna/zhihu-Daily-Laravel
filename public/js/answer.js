@@ -3,6 +3,7 @@
     angular.module('answer',[])
         .service('AnswerService',['$http',function($http) {
             var me = this;
+            me.data = {};
             me.count_vote = function (answers) {
                 for (var i = 0; i < answers.length;i++) {
                     var votes,item = answers[i];
@@ -25,7 +26,7 @@
 
             me.vote = function (conf) {
                 if(!conf.id || !conf.vote) {
-                    console.log('需要id和投票数')
+                    console.log('需要id和投票数');
                     return;
                 }
 
@@ -38,13 +39,22 @@
                         return false;
                     })
 
-            }
+            };
 
-            me.update_data = function(input) {
-                if(angular.isNumeric(input))
+            me.update_data = function(id) {
+                return $http.post('/api/answer/read', {id:id})
+                    .then(function(r) {
+                        // console.log('r',r);
+                        me.data[id] = r.data.data;
+                    }, function(e) {
+                        console.log('e',e);
+                    })
+                /*if(angular.isNumeric(input))
                     var id = input;
                 if(angular.isArray(input))
-                    var id_set = input;
+                    var id_set = input;*/
+
+
             }
         }])
 
