@@ -64,6 +64,21 @@ class Question extends Model
             ['status' => 0,'msg' => '更新问题失败'];
     }
 
+    public function read_by_user_id($user_id)
+    {
+        $user = user_ins()->find($user_id);
+        if (!$user)
+            return err('用户不存在');
+
+        $r = $this
+//            ->with('question')
+            ->where('user_id', $user_id)
+            ->get()
+            ->keyBy('id');
+
+        return suc($r->toArray());
+    }
+
     /**
      * 查看问题模块
      */
@@ -72,6 +87,14 @@ class Question extends Model
 
         if(rq('id'))
             return ['status' => 1,'data' => $this->find(rq('id'))];
+
+            if (rq('user_id')) {
+                $user_id = rq('user_id') === 'self' ?
+                    session('user_id') :
+                    rq('user_id');
+                return $this->read_by_user_id($user_id);
+            }
+
 
  /*       $limit = rq('limit') ? : 15;
         $skip = (rq('skip') ?  rq('skip')-1 : 0 ) *$limit;*/

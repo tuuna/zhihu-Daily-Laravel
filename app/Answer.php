@@ -48,10 +48,10 @@ class Answer extends Model
     {
         $user = user_ins()->find($user_id);
         if (!$user)
-            return err('user not exists');
+            return err('用户不存在');
 
         $r = $this
-            ->with('question')
+//            ->with('question')
             ->where('user_id', $user_id)
             ->get()
             ->keyBy('id');

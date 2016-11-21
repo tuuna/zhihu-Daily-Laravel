@@ -8,7 +8,7 @@
                     <div class="down" ng-click = "Timeline.vote({id : item.id , vote : 2})">踩</div>
                 </div>
                 <div class="feed-item-content">
-                    <div ng-if="item.question_id" class="content-act">[: item.user.username :]添加了回答</div>
+                    <div ng-if="item.question_id" class="content-act">[: item.user.username :]提出了问题</div>
                     <div ng-if="!item.question_id" class="content-act">[: item.user.username :]回答了问题</div>
                     <div class="title">[: item.title :]</div>
                     <div class="content-owner">[: item.user.username :]
