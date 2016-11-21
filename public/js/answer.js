@@ -8,7 +8,9 @@
                 for (var i = 0; i < answers.length;i++) {
                     var votes,item = answers[i];
 
-                    if(!item['question_id'] || !item['users']) continue;
+                    if(!item['question_id']) continue;
+                    me.data[item.id] = item;
+                    if(!item['users']) continue;
                     item.upvote_count = 0;
                     item.downvote_count = 0;
 
@@ -30,6 +32,13 @@
                     return;
                 }
 
+                var answer = me.data[conf.id],
+                    users  = answer.users;
+                /*判断当前用户是否已经投过相同的票*/
+                for (var i = 0; i < users.length; i++) {
+                    if(users[i].id == his.id && conf.vote == users[i].pivot.vote)
+                        conf.vote = 3;
+                }
                 return $http.post('/api/answer/vote',conf)
                     .then(function(r) {
                         if (r.data.status)

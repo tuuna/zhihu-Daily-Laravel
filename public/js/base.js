@@ -1,5 +1,8 @@
 ;(function() {
     'use strict';
+    window.his = {
+        id: parseInt($('html').attr('user-id'))
+    };
     angular.module('zhihu',['ui.router','common','user','question','answer'])
         .config([
             '$interpolateProvider',

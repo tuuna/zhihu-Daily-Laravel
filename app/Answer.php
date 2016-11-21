@@ -142,12 +142,19 @@ class Answer extends Model
 
         if(!$answer) return ['status' => 0,'msg' => '没有这个问题'];
 
+        $vote = rq('vote');
+        if ($vote != 1 && $vote != 2 && $vote != 3)
+            return ['status' => 0,'msg' => '投票内容不合理'];
+
         $vote = $answer
                     ->users() //返回一个关系
                     ->newPivotStatement() //进入中间表
                     ->where('user_id',session('user_id'))
                     ->where('answer_id',rq('id'))
                     ->delete();
+
+        if($vote == 3)
+            return ['status' => 1];
 
 
         $answer->users()->attach(session('user_id'),['vote' => (int) rq('vote')]);

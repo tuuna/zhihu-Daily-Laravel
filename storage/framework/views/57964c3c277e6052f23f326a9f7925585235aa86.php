@@ -1,4 +1,4 @@
-<html lang="zh" ng-app="zhihu">
+<html lang="zh" ng-app="zhihu" user-id="<?php echo e(session('user_id')); ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
