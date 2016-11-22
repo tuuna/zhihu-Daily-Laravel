@@ -5,6 +5,7 @@
             '$state',
             '$http',
             function($state,$http){
+
                 var me = this;
                 me.signup_data = {};
                 me.login_data = {};
@@ -12,7 +13,13 @@
                 me.read = function(param) {
                     return $http.post('/api/user/read',param)
                         .then(function(r) {
-                            console.log(r);
+                            if (r.data.status) {
+                                if(param.id == 'self')
+                                    me.self_data = r.data.data;
+                                else
+                                    me.data[param.id] = r.data.data;
+                            }
+
                         })
                 };
                 me.signup = function() {
